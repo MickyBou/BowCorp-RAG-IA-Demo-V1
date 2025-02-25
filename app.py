@@ -125,9 +125,7 @@ hide_label = (
     .replace("INSTRUCTIONS_TEXT", languages.get(lang).get("instructions"))
     .replace("FILE_LIMITS", languages.get(lang).get("limits"))
 )
-
-st.markdown(hide_label, unsafe_allow_html=True)
-    
+   
     with st.sidebar:
         st.title("Menú:")
         pdf_docs = st.file_uploader("Sube los archivos PDF y pulsa en el botón Enviar y Procesar", accept_multiple_files=True)
