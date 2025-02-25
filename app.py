@@ -69,23 +69,23 @@ def user_input(user_question):
     st.write("Reply: ", response["output_text"])
 
 def main():
-    st.set_page_config("BowCorp")
-    st.header("¡Sube tus ficheros PDF y empieza a preguntar!")
+    st.set_page_config("BowCorp RAG IA")
+    st.header("BowCorp RAG IA - Demo")
 
-    user_question = st.text_input("Ask a Question from the PDF Files")
+    user_question = st.text_input("Sube tus documentos y conversa con ellos.")
 
     if user_question:
         user_input(user_question)
 
     with st.sidebar:
         st.title("Menu:")
-        pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True)
-        if st.button("Submit & Process"):
-            with st.spinner("Processing..."):
+        pdf_docs = st.file_uploader("Sube los archiios PDF y pulsa en el botón Enviar y Procesar", accept_multiple_files=True)
+        if st.button("Enviar y Procesar"):
+            with st.spinner("Procesando..."):
                 raw_text = get_pdf_text(pdf_docs)
                 text_chunks = get_text_chunks(raw_text)
                 get_vector_store(text_chunks)
-                st.success("Done")
+                st.success("¡Listo!")
 
 if __name__ == "__main__":
     main()
