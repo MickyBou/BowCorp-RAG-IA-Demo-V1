@@ -80,32 +80,6 @@ def main():
         st.title("Menú:")
 
     pdf_docs = st.file_uploader("Sube los archivos PDF y pulsa en el botón Enviar y Procesar", accept_multiple_files=True)
-
-    st.html(
-        """
-        <style>
-
-        [data-testid='stFileUploaderDropzoneInstructions'] > div > span {
-        display: none;
-        }
-
-        [data-testid='stFileUploaderDropzoneInstructions'] > div::before {
-        content: 'Arrastre aquí los archivos';
-        }
-
-        [data-testid='stBaseButton-secondary'] { text-indent: -9999px; line-height: 0; } [
-        
-        data-testid='stBaseButton-secondary']::after { line-height: initial; 
-        content: "Buscar"; text-indent: 0; }
-
-        [data-testid='stFileDropzoneInstructions'] { text-indent: -9999px; line-height: 0; } [
-        
-        data-testid='stFileDropzoneInstructions']::after { line-height: initial; 
-        content: "Límite 1MB por archivo"; text-indent: 0; }
-
-        </style>
-        """
-    )
         
     if st.button("Enviar y Procesar"):
         with st.spinner("Procesando..."):
