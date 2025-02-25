@@ -79,10 +79,8 @@ def main():
     with st.sidebar:
         st.title("Menú:")
 
-    pdf_docs = st.file_uploader(
-        f"Choose up to {MAX_LINES} PDF files to upload", type=["pdf"], 
-        accept_multiple_files=True,
-    )
+    pdf_docs = st.file_uploader("Sube los archivos PDF y pulsa en el botón Enviar y Procesar", accept_multiple_files=True)
+
     st.html(
         """
         <style>
@@ -109,8 +107,6 @@ def main():
         """
     )
         
-        # pdf_docs = st.file_uploader("Sube los archivos PDF y pulsa en el botón Enviar y Procesar", accept_multiple_files=True)
-
         if st.button("Enviar y Procesar"):
             with st.spinner("Procesando..."):
                 raw_text = get_pdf_text(pdf_docs)
