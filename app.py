@@ -76,56 +76,6 @@ def main():
     if user_question:
         user_input(user_question)
 
-languages = {
-    "EN": {
-        "button": "Browse Files",
-        "instructions": "Drag and drop files here",
-        "limits": "Limit 200MB per file",
-    },
-    "ES": {
-        "button": "Buscar",
-        "instructions": "Arrastre archivos aqui",
-        "limits": "Limite de 200MB por archivo",
-    },
-}
-lang = st.radio("", options=["EN", "ES"], horizontal=True)
-
-hide_label = (
-    """
-<style>
-    div[data-testid="stFileUploader"]>section[data-testid="stFileUploadDropzone"]>button[data-testid="baseButton-secondary"] {
-       color:white;
-    }
-    div[data-testid="stFileUploader"]>section[data-testid="stFileUploadDropzone"]>button[data-testid="baseButton-secondary"]::after {
-        content: "BUTTON_TEXT";
-        color:black;
-        display: block;
-        position: absolute;
-    }
-    div[data-testid="stFileDropzoneInstructions"]>div>span {
-       visibility:hidden;
-    }
-    div[data-testid="stFileDropzoneInstructions"]>div>span::after {
-       content:"INSTRUCTIONS_TEXT";
-       visibility:visible;
-       display:block;
-    }
-     div[data-testid="stFileDropzoneInstructions"]>div>small {
-       visibility:hidden;
-    }
-    div[data-testid="stFileDropzoneInstructions"]>div>small::before {
-       content:"FILE_LIMITS";
-       visibility:visible;
-       display:block;
-    }
-</style>
-""".replace(
-        "BUTTON_TEXT", "1111"
-    )
-    .replace("INSTRUCTIONS_TEXT", languages.get(lang).get("instructions"))
-    .replace("FILE_LIMITS", languages.get(lang).get("limits"))
-)
-   
     with st.sidebar:
         st.title("Menú:")
         pdf_docs = st.file_uploader("Sube los archivos PDF y pulsa en el botón Enviar y Procesar", accept_multiple_files=True)
