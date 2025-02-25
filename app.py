@@ -69,7 +69,7 @@ def user_input(user_question):
 
 def main():
     st.set_page_config("BowCorp RAG IA")
-    st.header("BowCorp RAG IA - Demo")
+    st.header("BowCorp RAG IA - Demo V1")
 
     user_question = st.text_input("Sube tus documentos y conversa con ellos.")
 
