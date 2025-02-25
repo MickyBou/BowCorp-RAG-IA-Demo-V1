@@ -107,12 +107,12 @@ def main():
         """
     )
         
-        if st.button("Enviar y Procesar"):
-            with st.spinner("Procesando..."):
-                raw_text = get_pdf_text(pdf_docs)
-                text_chunks = get_text_chunks(raw_text)
-                get_vector_store(text_chunks)
-                st.success("¡Listo!")
+    if st.button("Enviar y Procesar"):
+        with st.spinner("Procesando..."):
+            raw_text = get_pdf_text(pdf_docs)
+            text_chunks = get_text_chunks(raw_text)
+            get_vector_store(text_chunks)
+            st.success("¡Listo!")
 
 if __name__ == "__main__":
     main()
